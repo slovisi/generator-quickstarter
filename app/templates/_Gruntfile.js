@@ -31,7 +31,7 @@ module.exports = function(grunt) {
             return [
               lrSnippet,
               mountFolder(connect, '.tmp'),
-              mountFolder(connect, quickConfig.dev)
+              mountFolder(connect, yoConf.dev)
             ];
           }
         }
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
         options: {
           middleware: function (connect) {
             return [
-              mountFolder(connect, quickConfig.dist)
+              mountFolder(connect, yoConf.dist)
             ];
           }
         }
