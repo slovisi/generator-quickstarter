@@ -1,0 +1,10 @@
+{
+  "name": "<%= _.slugify(projectName) %>",
+  "version": "0.0.0",
+  "author": "<%= authorName %>",
+  "dependencies": {
+    "modernizr": "~2.6.1",
+    "jquery": "~1.10.2"
+  }
+}
+

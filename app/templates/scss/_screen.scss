@@ -1,0 +1,9 @@
+
+@import 'partials/config';       // Compass config, Variables & Mixins
+<% if (useWebfont) {%>@import 'optionnal/webfonts';              // Optionnal, read use case in the partial<% } %>
+@import 'partials/normalize';       // normalize set to legacy version (see _config.scss)
+@import 'partials/boilerplate-defaults'; // HTML5Boilerplate defaults styles. May be Modified
+@import 'partials/application';            // Your site styles. Of course can be modified ;)
+@import 'partials/helpers';                // HTML5Boilerplate helpers. May be Modified
+@import 'partials/print';                  // HTML5Boilerplate print defaults. May be Modified
+@import 'partials/debug';                  // Debug partial based on _debug.scss partial from inuit.css (https://github.com/csswizardry/inuit.css)

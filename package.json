@@ -1,0 +1,41 @@
+{
+  "name": "generator-quickstarter",
+  "version": "0.0.0",
+  "description": "A generator for Yeoman",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "homepage": "https://github.com/slovisi/generator-quickstarter",
+  "bugs": "https://github.com/slovisi/generator-quickstarter/issues",
+  "author": {
+    "name": "Sylvain Lovisi",
+    "email": "",
+    "url": "https://github.com/slovisi"
+  },
+  "main": "app/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/slovisi/generator-quickstarter.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "yeoman-generator": "~0.13.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.12.0"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0-rc.1"
+  },
+  "engines": {
+    "node": ">=0.8.0",
+    "npm": ">=1.2.10"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ]
+}

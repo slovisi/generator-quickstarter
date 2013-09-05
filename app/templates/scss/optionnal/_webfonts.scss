@@ -1,0 +1,31 @@
+/**
+ * Webfont use case
+ * font-face($name, $font-files, $eot, $weight, $style)
+ * Cross-browser support for @font-face. Supports IE, Gecko, Webkit, Opera.
+ * 
+ * $name is required, arbitrary, and what you will use in font stacks.
+ * $font-files is required using font-files('relative/location', 'format'). 
+ * for best results use this order: woff, opentype/truetype, svg
+ * $eot is required by IE, and is a relative location of the eot file.
+ * $weight shows if the font is bold, defaults to normal
+ * $style defaults to normal, might be also italic
+ * For android 2.2 Compatiblity, please ensure that your web page has 
+ * a meta viewport tag.
+ * To support iOS < 4.2, an SVG file must be provided
+ * If you need to generate other formats check out the Font Squirrel font generator
+ * 
+ * In order to refer to a specific style of the font in your stylesheets 
+ * as e.g. "font-style: italic;", you may add a couple of @font-face includes 
+ * containing the respective font files for each style and specying respective 
+ * the $style parameter. Order of the includes matters, and it is: normal, bold,
+ * italic, bold+italic. 
+ */
+
+@include font-face ('PTSans', font-files('PTS55F-webfont.woff', 'PTS55F-webfont.ttf', 'PTS55F-webfont.svg'), 'PTS55F-webfont.eot', normal, normal);
+@include font-face ('PTSans', font-files('PTS75F-webfont.woff', 'PTS75F-webfont.ttf', 'PTS75F-webfont.svg'), 'PTS75F-webfont.eot', bold, normal);
+@include font-face ('PTSans', font-files('PTS56F-webfont.woff', 'PTS56F-webfont.ttf', 'PTS56F-webfont.svg'), 'PTS56F-webfont.eot', normal, italic);
+@include font-face ('PTSans', font-files('PTS76F-webfont.woff', 'PTS76F-webfont.ttf', 'PTS76F-webfont.svg'), 'PTS76F-webfont.eot', bold, italic);
+
+@include font-face ('PTSansNarrow', font-files('PTN57F-webfont.woff', 'PTN57F-webfont.ttf', 'PTN57F-webfont.svg'), 'PTN57F-webfont.eot', normal, normal);
+@include font-face ('PTSansNarrow', font-files('PTN77F-webfont.woff', 'PTN77F-webfont.ttf', 'PTN77F-webfont.svg'), 'PTN77F-webfont.eot', bold, normal);
+
