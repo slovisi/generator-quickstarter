@@ -1,105 +1,208 @@
-// Generated on 2013-09-03 using generator-webapp 0.4.1
-'use strict';
-var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
-};
-
 module.exports = function(grunt) {
-  // configurable paths
-  var yoConf = {
-      dev: 'dev',
-      dist: 'dist'
-  };
-      // show elapsed time at the end
-  require('time-grunt')(grunt);
-  // load all grunt tasks
-  require('load-grunt-tasks')(grunt);
+
+  // Configuration goes here
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    quickConfig: yoConf,
-    connect: {
-      options: {
-        port: 9000,
-        // change this to '0.0.0.0' to access the server from outside
-        hostname: 'localhost'
-      },
-      livereload: {
-        options: {
-          middleware: function (connect) {
-            return [
-              lrSnippet,
-              mountFolder(connect, '.tmp'),
-              mountFolder(connect, yoConf.dev)
-            ];
-          }
-        }
-      },
-      dist: {
-        options: {
-          middleware: function (connect) {
-            return [
-              mountFolder(connect, yoConf.dist)
-            ];
-          }
-        }
-      }
-    },
-    open: {
-      server: {
-        path: 'http://localhost:<%= connect.options.port %>'
-      }
-    },
+        // Supprime le répertoire target
     clean: {
-        dist: {
-            files: [{
-                dot: true,
-                src: [
-                    '.tmp',
-                    '<%= quickConfig.dist %>/*',
-                    '!<%= quickConfig.dist %>/.git*'
-                ]
-            }]
-        },
-        server: '.tmp'
-    },
-    uglify: {
-      options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      }
+      files: ['prod']
     },
     compass: {
-      otions: {
-        config: 'config.rb'
-      },
-      dist: {
-        options: {
-          environment: 'production'
-        }
-      },
       dev: {
         options: {
-          environment: 'development'
+          basePath: 'dev/',
+          config: 'dev/config.rb'
         }
       }
+    },
+    concat: {
+      options: {
+        separator: ';',
+      },
+      appjs: {
+        src: ['dev/js/plugins.js', 'dev/js/main.js'],
+        dest: 'prod/js/app.js',
+      },
+      total: {
+        src: ['bower_components/jquery/jquery.min.js', 'prod/js/app.js'],
+        dest: 'prod/js/app.js',
+      }
+    },
+    uglify: {
+      minify: {
+        files: [
+          {
+            'prod/js/app.js': ['prod/js/app.js']
+          }
+        ]
+      }
+    },
+    copy: {
+      // Copie les fichiers HTML vers target
+      html: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dev/',
+            src: ['*.html'],
+            dest: 'prod/',
+            ext: '.html'
+          }
+        ]
+      },
+
+      // Copie les fichiers JS vers target
+      js: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dev/js',
+            src: ['*.js'],
+            dest: 'prod/js/',
+            ext: '.js'
+          }
+        ]
+      },
+
+      // Copie les fichiers CSS vers target
+      css: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dev/css/',
+            src: ['*.css'],
+            dest: 'prod/css/',
+            ext: '.css'
+          }
+        ]
+      },
+
+      // Copie les resources
+      resources: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dev/img',
+            src: ['**/*'],
+            dest: 'prod/img/'
+          }
+        ]
+      }
+    },
+
+    watch: {
+      sass: {
+        files: ['dev/scss/**/*.scss'],
+        tasks: ['compass:dev']
+      },
+      css: {
+        files: ['dev/css/*.css'],
+        tasks: ['copy:css']
+      },
+      /* watch our files for change, reload */
+      livereload: {
+        files: ['*.html', 'dev/css/*.css', 'dev/img/*', 'dev/js/{plugins.js, main.js}'],
+        options: {
+          livereload: true
+        }
+      },
+    },
+    connect: {
+      server: {
+        options: {
+          port: 9001,
+          base: 'prod/'
+        }
+      }
+    },
+    modernizr: {
+
+      // [REQUIRED] Path to the build you're using for development.
+      "devFile" : "bower_components//modernizr/modernizr.js",
+
+      // [REQUIRED] Path to save out the built file.
+      "outputFile" : "prod/js/modernizr.min.js",
+
+      // Based on default settings on http://modernizr.com/download/
+      "extra" : {
+          "shiv" : true,
+          "printshiv" : false,
+          "load" : true,
+          "mq" : false,
+          "cssclasses" : true
+      },
+
+      // Based on default settings on http://modernizr.com/download/
+      "extensibility" : {
+          "addtest" : false,
+          "prefixed" : false,
+          "teststyles" : false,
+          "testprops" : false,
+          "testallprops" : false,
+          "hasevents" : false,
+          "prefixes" : false,
+          "domprefixes" : false
+      },
+
+      // By default, source is uglified before saving
+      "uglify" : true,
+
+      // Define any tests you want to impliticly include.
+      "tests" : [],
+
+      // By default, this task will crawl your project for references to Modernizr tests.
+      // Set to false to disable.
+      "parseFiles" : true,
+
+      // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
+      // You can override this by defining a "files" array below.
+      // "files" : [],
+
+      // When parseFiles = true, matchCommunityTests = true will attempt to
+      // match user-contributed tests.
+      "matchCommunityTests" : false,
+
+      // Have custom Modernizr tests? Add paths to their location here.
+      "customTests" : []
     }
   });
 
-  grunt.registerTask('build', [
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-modernizr');
+
+  // Dev : copy, compile, lance le serveur
+  grunt.registerTask('dev', [
     'clean',
-    'uglify',
-    'compass',
-    'connect',
-    'open'
+    'compass:dev',
+    'modernizr',
+    'concat:appjs',
+    'concat:total',
+    'copy:html',
+    'copy:css',
+    'copy:resources',
+    'connect:server',
+    'watch'
+  ])
+  // Prod : copy, compile, minify
+  grunt.registerTask('production', [
+    'clean',
+    'compass:dev',
+    'modernizr',
+    'concat:appjs',
+    'uglify:minify',
+    'concat:total',
+    'compass:dev',
+    'copy:css',
+    'copy:html',
+    'copy:resources'
   ]);
 
-  grunt.registerTask('default', [
-    'clean',
-    'uglify',
-    'compass',
-    'connect',
-    'open'
-  ]);
+  grunt.registerTask('default', ['dev']);
 
 };
