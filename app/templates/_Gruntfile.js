@@ -1,8 +1,8 @@
 module.exports = function(grunt) {
-
+  var pkg = grunt.file.readJSON('package.json');
   // Configuration goes here
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+
         // Supprime le répertoire target
     clean: {
       files: ['prod']
@@ -20,8 +20,8 @@ module.exports = function(grunt) {
         separator: ';',
       },
       appjs: {
-        src: ['dev/js/plugins.js', 'dev/js/main.js'],
-        dest: 'prod/js/app.js',
+        src: ['dev/src/plugins.js', 'dev/src/main.js'],
+        dest: 'dev/js/app.js',
       },
       total: {
         src: ['bower_components/jquery/jquery.min.js', 'prod/js/app.js'],
@@ -30,11 +30,13 @@ module.exports = function(grunt) {
     },
     uglify: {
       minify: {
-        files: [
-          {
-            'prod/js/app.js': ['prod/js/app.js']
-          }
-        ]
+        files: [{
+            expand: true,
+            cwd: 'prod/js',
+            src: ['*.js'],
+            dest: 'prod/js',
+            ext: '.js'
+          }]
       }
     },
     copy: {
@@ -50,7 +52,45 @@ module.exports = function(grunt) {
           }
         ]
       },
-
+      font: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dev/font',
+            src: ['*.eot'],
+            dest: 'prod/font/',
+            ext: '.eot'
+          },
+          {
+            expand: true,
+            cwd: 'dev/font',
+            src: ['*.svg'],
+            dest: 'prod/font/',
+            ext: '.svg'
+          },
+          {
+            expand: true,
+            cwd: 'dev/font',
+            src: ['*.ttf'],
+            dest: 'prod/font/',
+            ext: '.ttf'
+          },
+          {
+            expand: true,
+            cwd: 'dev/font',
+            src: ['*.woff'],
+            dest: 'prod/font/',
+            ext: '.woff'
+          },
+          {
+            expand: true,
+            cwd: 'dev/font',
+            src: ['*.txt'],
+            dest: 'prod/font/',
+            ext: '.txt'
+          }
+        ]
+      },
       // Copie les fichiers JS vers target
       js: {
         files: [
@@ -63,7 +103,17 @@ module.exports = function(grunt) {
           }
         ]
       },
-
+      jscustom: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dev/src/custom',
+            src: ['*.js'],
+            dest: 'prod/js/',
+            ext: '.js'
+          }
+        ]
+      },
       // Copie les fichiers CSS vers target
       css: {
         files: [
@@ -164,6 +214,45 @@ module.exports = function(grunt) {
 
       // Have custom Modernizr tests? Add paths to their location here.
       "customTests" : []
+    },
+    prompt: {
+      prep: {
+        options: {
+          questions: [
+            {
+              config: 'template.options.data.gAnalytics',
+              type: 'input', // list, checkbox, confirm, input, password
+              message: 'Would you like to set the Google Analytics account',
+              default: pkg.analytics, // default value if nothing is entered
+            }
+          ]
+        }
+      },
+    },
+    template: {
+      options: {
+        data : {
+          'appName': pkg.fullname,
+          'gAnalytics': pkg.analytics
+        }
+      },
+      process: {
+        files: [{expand: true,
+            cwd: 'prod/',
+            src: ['*.html'],
+            dest: 'prod/',
+            ext: '.html'}]
+      }
+    },
+    imagemin: {                          // Task
+      dynamic: {                         // Another target
+        files: [{
+          expand: true,                  // Enable dynamic expansion
+          cwd: 'prod/img/',                   // Src matches are relative to this path
+          src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+          dest: 'prod/img/'                  // Destination path prefix
+        }]
+      }
     }
   });
 
@@ -175,16 +264,23 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-modernizr');
-
+  grunt.loadNpmTasks('grunt-template');
+  grunt.loadNpmTasks('grunt-prompt');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   // Dev : copy, compile, lance le serveur
   grunt.registerTask('dev', [
     'clean',
+    'prompt:prep',
     'compass:dev',
     'modernizr',
     'concat:appjs',
+    'copy:js',
+    'copy:jscustom',
     'concat:total',
     'copy:html',
+    'template:process',
     'copy:css',
+    'copy:font',
     'copy:resources',
     'connect:server',
     'watch'
@@ -192,15 +288,21 @@ module.exports = function(grunt) {
   // Prod : copy, compile, minify
   grunt.registerTask('production', [
     'clean',
+    'prompt:prep',
     'compass:dev',
-    'modernizr',
     'concat:appjs',
+    'copy:js',
+    'copy:jscustom',
     'uglify:minify',
+    'modernizr',
     'concat:total',
     'compass:dev',
     'copy:css',
+    'copy:font',
     'copy:html',
-    'copy:resources'
+    'template:process',
+    'copy:resources',
+    'imagemin:dynamic'
   ]);
 
   grunt.registerTask('default', ['dev']);

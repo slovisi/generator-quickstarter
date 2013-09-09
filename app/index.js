@@ -60,6 +60,11 @@ QuickstarterGenerator.prototype.askFor = function askFor() {
     type: 'confirm',
     default: false,
     message: 'Would you like set CSS Debug On ?'
+  },
+  {
+    name: 'gAnalytics',
+    default: 'UA-XXXXX-X',
+    message: 'Do you have a Google Analytics account already (otherwise leave default) ?'
   }
   ];
 
@@ -71,6 +76,7 @@ QuickstarterGenerator.prototype.askFor = function askFor() {
     this.supportIE7 = props.supportIE7;
     this.supportIE6 = props.supportIE6;
     this.debugCSSOn = props.debugCSSOn;
+    this.gAnalytics = props.gAnalytics;
 
     cb();
   }.bind(this));
@@ -91,8 +97,9 @@ QuickstarterGenerator.prototype.app = function app() {
   this.copy('favicon.ico', 'dev/favicon.ico');
 
   this.mkdir('dev/js');
-  this.template("js/plugins.js", "dev/js/plugins.js");
-  this.template("js/main.js", "dev/js/main.js");
+  this.mkdir('dev/src');
+  this.template("js/plugins.js", "dev/src/plugins.js");
+  this.template("js/main.js", "dev/src/main.js");
 
   this.mkdir("dev/img");
   this.copy("img/spacer.gif", "dev/img/spacer.gif");
@@ -109,7 +116,7 @@ QuickstarterGenerator.prototype.app = function app() {
   this.template("scss/partials/_print.scss", "dev/scss/partials/_print.scss");
 
   if (this.useWebfont) {
-    this.mkdir("font");
+    this.mkdir("dev/font");
     this.copy('font/Paratype_PT_Sans_Free_Font_License.txt', 'dev/font/Paratype_PT_Sans_Free_Font_License.txt');
     this.copy('font/PTC55F-webfont.eot', 'dev/font/PTC55F-webfont.eot');
     this.copy('font/PTC55F-webfont.svg', 'dev/font/PTC55F-webfont.svg');
