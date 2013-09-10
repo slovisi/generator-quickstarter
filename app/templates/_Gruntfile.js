@@ -145,13 +145,17 @@ module.exports = function(grunt) {
         files: ['dev/scss/**/*.scss'],
         tasks: ['compass:dev']
       },
+      html: {
+        files: ['dev/**/*.html'],
+        tasks: ['copy:html','template:process']
+      },
       css: {
         files: ['dev/css/*.css'],
         tasks: ['copy:css']
       },
       /* watch our files for change, reload */
       livereload: {
-        files: ['*.html', 'dev/css/*.css', 'dev/img/*', 'dev/js/{plugins.js, main.js}'],
+        files: ['dev/*.html', 'dev/css/*.css', 'dev/img/*', 'dev/src/**/*.js'],
         options: {
           livereload: true
         }
@@ -296,7 +300,6 @@ module.exports = function(grunt) {
     'uglify:minify',
     'modernizr',
     'concat:total',
-    'compass:dev',
     'copy:css',
     'copy:font',
     'copy:html',
