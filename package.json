@@ -1,7 +1,7 @@
 {
   "name": "generator-quickstarter",
-  "version": "0.0.0",
-  "description": "A generator for Yeoman",
+  "version": "0.1.0",
+  "description": "A HTML5 Boilerplate based Generator, Compass ready",
   "keywords": [
     "yeoman-generator"
   ],
@@ -9,7 +9,7 @@
   "bugs": "https://github.com/slovisi/generator-quickstarter/issues",
   "author": {
     "name": "Sylvain Lovisi",
-    "email": "",
+    "email": "sylvain.lovisi@gmail.com",
     "url": "https://github.com/slovisi"
   },
   "main": "app/index.js",
