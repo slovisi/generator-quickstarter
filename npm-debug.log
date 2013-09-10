@@ -1,0 +1,267 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.3.9
+3 info using node@v0.8.14
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { pathname: '.', path: '.', href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/slovisi/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz',
+10 verbose tar pack   '.' ]
+11 verbose tarball /var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz
+12 verbose folder .
+13 silly lockFile 1f1177db-tar tar://.
+14 verbose lock tar://. /Users/slovisi/.npm/1f1177db-tar.lock
+15 silly lockFile 0ecd6136-2794-0-18488511047326028-tmp-tgz tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz
+16 verbose lock tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz /Users/slovisi/.npm/0ecd6136-2794-0-18488511047326028-tmp-tgz.lock
+17 silly lockFile 1f1177db-tar tar://.
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 0ecd6136-2794-0-18488511047326028-tmp-tgz tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz
+20 silly lockFile 0ecd6136-2794-0-18488511047326028-tmp-tgz tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz
+21 verbose tar unpack /var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz
+22 silly lockFile bbe12749-2794-0-18488511047326028-package tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package
+23 verbose lock tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package /Users/slovisi/.npm/bbe12749-2794-0-18488511047326028-package.lock
+24 silly lockFile 0ecd6136-2794-0-18488511047326028-tmp-tgz tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz
+25 verbose lock tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz /Users/slovisi/.npm/0ecd6136-2794-0-18488511047326028-tmp-tgz.lock
+26 silly gunzTarPerm modes [ '755', '644' ]
+27 silly gunzTarPerm extractEntry package.json
+28 silly gunzTarPerm extractEntry .npmignore
+29 silly gunzTarPerm extractEntry README.md
+30 silly gunzTarPerm extractEntry LICENSE
+31 silly gunzTarPerm extractEntry .travis.yml
+32 silly gunzTarPerm extractEntry app/index.js
+33 silly gunzTarPerm extractEntry app/templates/README.md
+34 silly gunzTarPerm extractEntry app/templates/_Gruntfile.js
+35 silly gunzTarPerm extractEntry app/templates/favicon.ico
+36 silly gunzTarPerm extractEntry app/templates/404.html
+37 silly gunzTarPerm extractEntry app/templates/_package.json
+38 silly gunzTarPerm extractEntry app/templates/_page.html
+39 silly gunzTarPerm extractEntry app/templates/apple-touch-icon-precomposed.png
+40 silly gunzTarPerm modified mode [ 'app/templates/apple-touch-icon-precomposed.png', 384, 420 ]
+41 silly gunzTarPerm extractEntry app/templates/CHANGELOG.md
+42 silly gunzTarPerm extractEntry app/templates/crossdomain.xml
+43 silly gunzTarPerm extractEntry app/templates/editorconfig
+44 silly gunzTarPerm extractEntry app/templates/_bower.json
+45 silly gunzTarPerm extractEntry app/templates/font/PTN77F-webfont.woff
+46 silly gunzTarPerm extractEntry app/templates/font/Paratype_PT_Sans_Free_Font_License.txt
+47 silly gunzTarPerm extractEntry app/templates/font/PTC55F-webfont.svg
+48 silly gunzTarPerm extractEntry app/templates/font/PTC55F-webfont.ttf
+49 silly gunzTarPerm extractEntry app/templates/font/PTC55F-webfont.woff
+50 silly gunzTarPerm extractEntry app/templates/font/PTC75F-webfont.eot
+51 silly gunzTarPerm extractEntry app/templates/font/PTC75F-webfont.svg
+52 silly gunzTarPerm extractEntry app/templates/font/PTC75F-webfont.ttf
+53 silly gunzTarPerm extractEntry app/templates/font/PTC75F-webfont.woff
+54 silly gunzTarPerm extractEntry app/templates/font/PTN57F-webfont.eot
+55 silly gunzTarPerm extractEntry app/templates/font/PTN57F-webfont.svg
+56 silly gunzTarPerm extractEntry app/templates/font/PTN57F-webfont.ttf
+57 silly gunzTarPerm extractEntry app/templates/font/PTN57F-webfont.woff
+58 silly gunzTarPerm extractEntry app/templates/font/PTN77F-webfont.eot
+59 silly gunzTarPerm extractEntry app/templates/font/PTN77F-webfont.svg
+60 silly gunzTarPerm extractEntry app/templates/font/PTN77F-webfont.ttf
+61 silly gunzTarPerm extractEntry app/templates/font/PTC55F-webfont.eot
+62 silly gunzTarPerm extractEntry app/templates/font/PTS55F-webfont.eot
+63 silly gunzTarPerm extractEntry app/templates/font/PTS55F-webfont.svg
+64 silly gunzTarPerm extractEntry app/templates/font/PTS55F-webfont.ttf
+65 silly gunzTarPerm extractEntry app/templates/font/PTS55F-webfont.woff
+66 silly gunzTarPerm extractEntry app/templates/font/PTS56F-webfont.eot
+67 silly gunzTarPerm extractEntry app/templates/font/PTS56F-webfont.svg
+68 silly gunzTarPerm extractEntry app/templates/font/PTS56F-webfont.ttf
+69 silly gunzTarPerm extractEntry app/templates/font/PTS56F-webfont.woff
+70 silly gunzTarPerm extractEntry app/templates/font/PTS75F-webfont.eot
+71 silly gunzTarPerm extractEntry app/templates/font/PTS75F-webfont.svg
+72 silly gunzTarPerm extractEntry app/templates/font/PTS75F-webfont.ttf
+73 silly gunzTarPerm extractEntry app/templates/font/PTS75F-webfont.woff
+74 silly gunzTarPerm extractEntry app/templates/font/PTS76F-webfont.eot
+75 silly gunzTarPerm extractEntry app/templates/font/PTS76F-webfont.svg
+76 silly gunzTarPerm extractEntry app/templates/font/PTS76F-webfont.ttf
+77 silly gunzTarPerm extractEntry app/templates/font/PTS76F-webfont.woff
+78 silly gunzTarPerm extractEntry app/templates/img/spacer.gif
+79 silly gunzTarPerm extractEntry app/templates/index.html
+80 silly gunzTarPerm extractEntry app/templates/js/main.js
+81 silly gunzTarPerm extractEntry app/templates/js/plugins.js
+82 silly gunzTarPerm extractEntry app/templates/jshintrc
+83 silly gunzTarPerm extractEntry app/templates/LICENSE.md
+84 silly gunzTarPerm extractEntry app/templates/_config.rb
+85 silly gunzTarPerm extractEntry app/templates/robots.txt
+86 silly gunzTarPerm extractEntry app/templates/scss/_screen.scss
+87 silly gunzTarPerm extractEntry app/templates/scss/optionnal/_webfonts.scss
+88 silly gunzTarPerm extractEntry app/templates/scss/partials/_application.scss
+89 silly gunzTarPerm extractEntry app/templates/scss/partials/_boilerplate-defaults.scss
+90 silly gunzTarPerm extractEntry app/templates/scss/partials/_config.scss
+91 silly gunzTarPerm extractEntry app/templates/scss/partials/_debug.scss
+92 silly gunzTarPerm extractEntry app/templates/scss/partials/_helpers.scss
+93 silly gunzTarPerm extractEntry app/templates/scss/partials/_normalize.scss
+94 silly gunzTarPerm extractEntry app/templates/scss/partials/_print.scss
+95 silly gunzTarPerm extractEntry app/templates/travis.yml
+96 silly gunzTarPerm extractEntry .gitattributes
+97 silly gunzTarPerm extractEntry .editorconfig
+98 silly gunzTarPerm extractEntry .jshintrc
+99 silly gunzTarPerm extractEntry page/index.js
+100 silly gunzTarPerm extractEntry page/templates/_page.js
+101 silly gunzTarPerm extractEntry page/templates/_page.html
+102 silly gunzTarPerm extractEntry test/test-creation.js
+103 silly gunzTarPerm extractEntry test/test-load.js
+104 silly lockFile bbe12749-2794-0-18488511047326028-package tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package
+105 silly lockFile bbe12749-2794-0-18488511047326028-package tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package
+106 silly lockFile 0ecd6136-2794-0-18488511047326028-tmp-tgz tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz
+107 silly lockFile 0ecd6136-2794-0-18488511047326028-tmp-tgz tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/tmp.tgz
+108 verbose tar pack [ '/Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz',
+108 verbose tar pack   '/var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package' ]
+109 verbose tarball /Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz
+110 verbose folder /var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package
+111 silly lockFile bbe12749-2794-0-18488511047326028-package tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package
+112 verbose lock tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package /Users/slovisi/.npm/bbe12749-2794-0-18488511047326028-package.lock
+113 silly lockFile ba8ec805-r-quickstarter-0-1-2-package-tgz tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz
+114 verbose lock tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz /Users/slovisi/.npm/ba8ec805-r-quickstarter-0-1-2-package-tgz.lock
+115 silly lockFile bbe12749-2794-0-18488511047326028-package tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package
+116 silly lockFile bbe12749-2794-0-18488511047326028-package tar:///var/folders/dp/b_gy1m3s31lg7r4l7wd5wys80000gp/T/npm-4696-zBEpPJaZ/1378823742794-0.18488511047326028/package
+117 silly lockFile ba8ec805-r-quickstarter-0-1-2-package-tgz tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz
+118 silly lockFile ba8ec805-r-quickstarter-0-1-2-package-tgz tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz
+119 silly lockFile c223cd8d-rator-quickstarter-0-1-2-package /Users/slovisi/.npm/generator-quickstarter/0.1.2/package
+120 verbose lock /Users/slovisi/.npm/generator-quickstarter/0.1.2/package /Users/slovisi/.npm/c223cd8d-rator-quickstarter-0-1-2-package.lock
+121 silly lockFile c223cd8d-rator-quickstarter-0-1-2-package /Users/slovisi/.npm/generator-quickstarter/0.1.2/package
+122 silly lockFile c223cd8d-rator-quickstarter-0-1-2-package /Users/slovisi/.npm/generator-quickstarter/0.1.2/package
+123 verbose tar unpack /Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz
+124 silly lockFile d207b356-rator-quickstarter-0-1-2-package tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package
+125 verbose lock tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package /Users/slovisi/.npm/d207b356-rator-quickstarter-0-1-2-package.lock
+126 silly lockFile ba8ec805-r-quickstarter-0-1-2-package-tgz tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz
+127 verbose lock tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz /Users/slovisi/.npm/ba8ec805-r-quickstarter-0-1-2-package-tgz.lock
+128 silly gunzTarPerm modes [ '755', '644' ]
+129 silly gunzTarPerm extractEntry package.json
+130 silly gunzTarPerm extractEntry .npmignore
+131 silly gunzTarPerm extractEntry README.md
+132 silly gunzTarPerm extractEntry LICENSE
+133 silly gunzTarPerm extractEntry app/index.js
+134 silly gunzTarPerm extractEntry app/templates/README.md
+135 silly gunzTarPerm extractEntry app/templates/_Gruntfile.js
+136 silly gunzTarPerm extractEntry app/templates/favicon.ico
+137 silly gunzTarPerm extractEntry app/templates/404.html
+138 silly gunzTarPerm extractEntry app/templates/_package.json
+139 silly gunzTarPerm extractEntry app/templates/_page.html
+140 silly gunzTarPerm extractEntry app/templates/apple-touch-icon-precomposed.png
+141 silly gunzTarPerm extractEntry app/templates/CHANGELOG.md
+142 silly gunzTarPerm extractEntry app/templates/crossdomain.xml
+143 silly gunzTarPerm extractEntry app/templates/editorconfig
+144 silly gunzTarPerm extractEntry app/templates/_bower.json
+145 silly gunzTarPerm extractEntry app/templates/font/PTN77F-webfont.woff
+146 silly gunzTarPerm extractEntry app/templates/font/Paratype_PT_Sans_Free_Font_License.txt
+147 silly gunzTarPerm extractEntry app/templates/font/PTC55F-webfont.svg
+148 silly gunzTarPerm extractEntry app/templates/font/PTC55F-webfont.ttf
+149 silly gunzTarPerm extractEntry app/templates/font/PTC55F-webfont.woff
+150 silly gunzTarPerm extractEntry app/templates/font/PTC75F-webfont.eot
+151 silly gunzTarPerm extractEntry app/templates/font/PTC75F-webfont.svg
+152 silly gunzTarPerm extractEntry app/templates/font/PTC75F-webfont.ttf
+153 silly gunzTarPerm extractEntry app/templates/font/PTC75F-webfont.woff
+154 silly gunzTarPerm extractEntry app/templates/font/PTN57F-webfont.eot
+155 silly gunzTarPerm extractEntry app/templates/font/PTN57F-webfont.svg
+156 silly gunzTarPerm extractEntry app/templates/font/PTN57F-webfont.ttf
+157 silly gunzTarPerm extractEntry app/templates/font/PTN57F-webfont.woff
+158 silly gunzTarPerm extractEntry app/templates/font/PTN77F-webfont.eot
+159 silly gunzTarPerm extractEntry app/templates/font/PTN77F-webfont.svg
+160 silly gunzTarPerm extractEntry app/templates/font/PTN77F-webfont.ttf
+161 silly gunzTarPerm extractEntry app/templates/font/PTC55F-webfont.eot
+162 silly gunzTarPerm extractEntry app/templates/font/PTS55F-webfont.eot
+163 silly gunzTarPerm extractEntry app/templates/font/PTS55F-webfont.svg
+164 silly gunzTarPerm extractEntry app/templates/font/PTS55F-webfont.ttf
+165 silly gunzTarPerm extractEntry app/templates/font/PTS55F-webfont.woff
+166 silly gunzTarPerm extractEntry app/templates/font/PTS56F-webfont.eot
+167 silly gunzTarPerm extractEntry app/templates/font/PTS56F-webfont.svg
+168 silly gunzTarPerm extractEntry app/templates/font/PTS56F-webfont.ttf
+169 silly gunzTarPerm extractEntry app/templates/font/PTS56F-webfont.woff
+170 silly gunzTarPerm extractEntry app/templates/font/PTS75F-webfont.eot
+171 silly gunzTarPerm extractEntry app/templates/font/PTS75F-webfont.svg
+172 silly gunzTarPerm extractEntry app/templates/font/PTS75F-webfont.ttf
+173 silly gunzTarPerm extractEntry app/templates/font/PTS75F-webfont.woff
+174 silly gunzTarPerm extractEntry app/templates/font/PTS76F-webfont.eot
+175 silly gunzTarPerm extractEntry app/templates/font/PTS76F-webfont.svg
+176 silly gunzTarPerm extractEntry app/templates/font/PTS76F-webfont.ttf
+177 silly gunzTarPerm extractEntry app/templates/font/PTS76F-webfont.woff
+178 silly gunzTarPerm extractEntry app/templates/img/spacer.gif
+179 silly gunzTarPerm extractEntry app/templates/index.html
+180 silly gunzTarPerm extractEntry app/templates/js/main.js
+181 silly gunzTarPerm extractEntry app/templates/js/plugins.js
+182 silly gunzTarPerm extractEntry app/templates/jshintrc
+183 silly gunzTarPerm extractEntry app/templates/LICENSE.md
+184 silly gunzTarPerm extractEntry app/templates/_config.rb
+185 silly gunzTarPerm extractEntry app/templates/robots.txt
+186 silly gunzTarPerm extractEntry app/templates/scss/_screen.scss
+187 silly gunzTarPerm extractEntry app/templates/scss/optionnal/_webfonts.scss
+188 silly gunzTarPerm extractEntry app/templates/scss/partials/_application.scss
+189 silly gunzTarPerm extractEntry app/templates/scss/partials/_boilerplate-defaults.scss
+190 silly gunzTarPerm extractEntry app/templates/scss/partials/_config.scss
+191 silly gunzTarPerm extractEntry app/templates/scss/partials/_debug.scss
+192 silly gunzTarPerm extractEntry app/templates/scss/partials/_helpers.scss
+193 silly gunzTarPerm extractEntry app/templates/scss/partials/_normalize.scss
+194 silly gunzTarPerm extractEntry app/templates/scss/partials/_print.scss
+195 silly gunzTarPerm extractEntry app/templates/travis.yml
+196 silly gunzTarPerm extractEntry .gitattributes
+197 silly gunzTarPerm extractEntry .jshintrc
+198 silly gunzTarPerm extractEntry .editorconfig
+199 silly gunzTarPerm extractEntry page/index.js
+200 silly gunzTarPerm extractEntry page/templates/_page.js
+201 silly gunzTarPerm extractEntry page/templates/_page.html
+202 silly gunzTarPerm extractEntry .travis.yml
+203 silly gunzTarPerm extractEntry test/test-creation.js
+204 silly gunzTarPerm extractEntry test/test-load.js
+205 silly lockFile d207b356-rator-quickstarter-0-1-2-package tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package
+206 silly lockFile d207b356-rator-quickstarter-0-1-2-package tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package
+207 silly lockFile ba8ec805-r-quickstarter-0-1-2-package-tgz tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz
+208 silly lockFile ba8ec805-r-quickstarter-0-1-2-package-tgz tar:///Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz
+209 verbose chmod /Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz 644
+210 verbose chown /Users/slovisi/.npm/generator-quickstarter/0.1.2/package.tgz [ 502, 20 ]
+211 silly lockFile 3a52ce78- .
+212 silly lockFile 3a52ce78- .
+213 silly publish { name: 'generator-quickstarter',
+213 silly publish   version: '0.1.2',
+213 silly publish   description: 'A HTML5 Boilerplate based Generator, Compass ready',
+213 silly publish   keywords: [ 'yeoman-generator' ],
+213 silly publish   homepage: 'https://github.com/slovisi/generator-quickstarter',
+213 silly publish   bugs: { url: 'https://github.com/slovisi/generator-quickstarter/issues' },
+213 silly publish   author:
+213 silly publish    { name: 'Sylvain Lovisi',
+213 silly publish      email: 'sylvain.lovisi@gmail.com',
+213 silly publish      url: 'https://github.com/slovisi' },
+213 silly publish   main: 'app/index.js',
+213 silly publish   repository:
+213 silly publish    { type: 'git',
+213 silly publish      url: 'git://github.com/slovisi/generator-quickstarter.git' },
+213 silly publish   scripts: { test: 'mocha' },
+213 silly publish   dependencies: { 'yeoman-generator': '~0.13.0' },
+213 silly publish   devDependencies: { mocha: '~1.12.0' },
+213 silly publish   peerDependencies: { yo: '>=1.0.0-rc.1' },
+213 silly publish   engines: { node: '>=0.8.0', npm: '>=1.2.10' },
+213 silly publish   licenses: [ { type: 'MIT' } ],
+213 silly publish   readme: 'A Yeoman Front-End Boilerplate Generator\n\n## Features\n\n* Built-in preview server with LiveReload\n* Automatic compilation of SCSS with Compass\n* Image Optimization\n\n## Getting Started\n\n- Install: `npm install -g generator-quickstarter`\n- Run: `yo quickstarter`\n- Run `grunt` or `grunt dev` for testing and preview, run `grunt production` for building and optimization (images & js minification).\n- Run: `yo quickstarter:page "Page Name"` to add a new page to your project\n\n## License\n\n[MIT License](http://en.wikipedia.org/wiki/MIT_License)\n',
+213 silly publish   readmeFilename: 'README.md',
+213 silly publish   _id: 'generator-quickstarter@0.1.2',
+213 silly publish   dist: { shasum: '853b95017408da42b165b68344cab5dfa1dcb3ba' },
+213 silly publish   _from: '.' }
+214 verbose url raw generator-quickstarter
+215 verbose url resolving [ 'https://registry.npmjs.org/', './generator-quickstarter' ]
+216 verbose url resolved https://registry.npmjs.org/generator-quickstarter
+217 info trying registry request attempt 1 at 16:35:44
+218 http PUT https://registry.npmjs.org/generator-quickstarter
+219 http 409 https://registry.npmjs.org/generator-quickstarter
+220 verbose url raw generator-quickstarter
+221 verbose url resolving [ 'https://registry.npmjs.org/', './generator-quickstarter' ]
+222 verbose url resolved https://registry.npmjs.org/generator-quickstarter
+223 info trying registry request attempt 1 at 16:35:46
+224 http GET https://registry.npmjs.org/generator-quickstarter
+225 http 200 https://registry.npmjs.org/generator-quickstarter
+226 error publish fail Cannot publish over existing version.
+226 error publish fail Update the 'version' field in package.json and try again.
+226 error publish fail
+226 error publish fail If the previous version was published in error, see:
+226 error publish fail     npm help unpublish
+226 error publish fail
+226 error publish fail To automatically increment version numbers, see:
+226 error publish fail     npm help version
+227 error System Darwin 12.4.0
+228 error command "node" "/usr/local/bin/npm" "publish"
+229 error cwd /Users/slovisi/Sites/generator-quickstarter
+230 error node -v v0.8.14
+231 error npm -v 1.3.9
+232 error code EPUBLISHCONFLICT
+233 verbose exit [ 1, true ]
