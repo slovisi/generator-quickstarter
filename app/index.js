@@ -21,62 +21,57 @@ QuickstarterGenerator.prototype.askFor = function askFor() {
 
   // have Yeoman greet the user.
   console.log(this.yeoman);
-  /*
-  var prompts = [{
-    type: 'confirm',
-    name: 'someOption',
-    message: 'Would you like to enable this option?',
-    default: true
-  }];
-  */
   var prompts = [{
     name: 'projectName',
-    message: 'What\'s the name of the project ?'
+    message: 'Name of the project :'
   },
   {
     name: 'authorName',
-    message: 'What\'s your name ?'
-  },
-  {
-    name: 'useWebfont',
-    type: 'confirm',
-    default: true,
-    message: 'Would you like to include an exemple Webfont ?'
-  },
-  {
-    name: 'supportIE7',
-    type: 'confirm',
-    default: true,
-    message: 'Would you like to include IE7 support ?'
-  },
-  {
-    name: 'supportIE6',
-    type: 'confirm',
-    default: false,
-    message: 'Would you like to include IE6 support ?'
-  },
-  {
-    name: 'debugCSSOn',
-    type: 'confirm',
-    default: false,
-    message: 'Would you like set CSS Debug On ?'
+    message: 'Developer\'s name'
   },
   {
     name: 'gAnalytics',
     default: 'UA-XXXXX-X',
-    message: 'Do you have a Google Analytics account already (otherwise leave default) ?'
-  }
-  ];
+    message: 'Google Analytics account ? If no account leave blank :'
+  },
+  {
+    name: 'features',
+    message: 'Select the options :',
+    type: 'checkbox',
+    choices: [{
+      name: 'Webfont Usage example',
+      value: 'useWebfont',
+      checked: true
+    }, {
+      name: 'Normalize IE7 support',
+      value: 'supportIE7',
+      checked: true
+    }, {
+      name: 'Normalize IE6 support',
+      value: 'supportIE6',
+      checked: false
+    }, {
+      name: 'Debug Stylesheet ON',
+      value: 'debugCSSOn',
+      checked: false
+    }]
+  }];
 
 
   this.prompt(prompts, function (props) {
+
+    var features = props.features;
+
+    function hasFeature(feat) { return features.indexOf(feat) !== -1; }
+
     this.projectName = props.projectName;
     this.authorName = props.authorName;
-    this.useWebfont = props.useWebfont;
-    this.supportIE7 = props.supportIE7;
-    this.supportIE6 = props.supportIE6;
-    this.debugCSSOn = props.debugCSSOn;
     this.gAnalytics = props.gAnalytics;
+    this.useWebfont = hasFeature('useWebfont');
+    this.supportIE7 = hasFeature('props.supportIE7');
+    this.supportIE6 = hasFeature('props.supportIE6');
+    this.debugCSSOn = hasFeature('props.debugCSSOn');
+
 
     cb();
   }.bind(this));
