@@ -8,8 +8,8 @@ A Yeoman Front-End Boilerplate Generator
 
 ## Getting Started
 
-- Make sure you have Node.js, Yeoman, Ruby, Sass & Compass installed as they are prerquisites for this generator
-- Install: `npm install -g generator-quickstarter`
+- Make sure that you have Git, Node.js, Yeoman, Ruby, Sass & Compass installed as they are prerquisites for this generator's workflow
+- To install this generator: `npm install -g generator-quickstarter`
 - Create a folder for a project and inside that folder run: `yo quickstarter`
 - Run `grunt` or `grunt dev` for testing and preview, run `grunt production` for building and optimization (images & js minification).
 - Run: `yo quickstarter:page "Page Name"` to add a new page to your project
