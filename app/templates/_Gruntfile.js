@@ -45,10 +45,12 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
+            dot: true,
             cwd: 'dev/',
-            src: ['*.html'],
-            dest: 'prod/',
-            ext: '.html'
+            src: ['*.{ico,png,txt,xml,html}',
+                  '.htaccess'],
+            dest: 'prod/'
+
           }
         ]
       },
@@ -164,6 +166,7 @@ module.exports = function(grunt) {
     connect: {
       server: {
         options: {
+          hostname: '*',
           port: 9001,
           base: 'prod/'
         }
@@ -257,6 +260,18 @@ module.exports = function(grunt) {
           dest: 'prod/img/'                  // Destination path prefix
         }]
       }
+    },
+    jshint: {
+      options: {
+        curly: true,
+        eqeqeq: true,
+        eqnull: true,
+        browser: true,
+        globals: {
+          jQuery: true
+        },
+      },
+      use_defaults: ['dev/src/*.js'],
     }
   });
 
@@ -271,12 +286,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-template');
   grunt.loadNpmTasks('grunt-prompt');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   // Dev : copy, compile, lance le serveur
   grunt.registerTask('dev', [
     'clean',
     'prompt:prep',
     'compass:dev',
     'modernizr',
+    'jshint:use_default',
     'concat:appjs',
     'copy:js',
     'copy:jscustom',
@@ -294,6 +311,7 @@ module.exports = function(grunt) {
     'clean',
     'prompt:prep',
     'compass:dev',
+    'jshint:use_default',
     'concat:appjs',
     'copy:js',
     'copy:jscustom',

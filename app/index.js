@@ -81,6 +81,7 @@ QuickstarterGenerator.prototype.app = function app() {
   this.mkdir('dev');
   this.mkdir('dev/css');
   this.template('index.html', 'dev/index.html');
+  this.copy('htaccess', 'dev/.htaccess');
   this.copy('404.html', 'dev/404.html');
   this.copy('apple-touch-icon-precomposed.png', 'dev/apple-touch-icon-precomposed.png');
   this.copy('CHANGELOG.md', 'dev/CHANGELOG.md');

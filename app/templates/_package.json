@@ -16,6 +16,7 @@
     "grunt-modernizr": "~0.3.0",
     "grunt-template": "~0.2.0",
     "grunt-prompt": "~0.1.2",
-    "grunt-contrib-imagemin": "~0.2.1"
+    "grunt-contrib-imagemin": "~0.2.1",
+    "grunt-contrib-jshint": "~0.6.4"
   }
 }
