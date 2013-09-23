@@ -5,13 +5,20 @@ module.exports = function(grunt) {
 
         // Supprime le répertoire target
     clean: {
-      files: ['prod']
+      files: ['prod','dev/css']
     },
     compass: {
       dev: {
         options: {
           basePath: 'dev/',
           config: 'dev/config.rb'
+        }
+      },
+      prod: {
+        options: {
+          basePath: 'dev/',
+          config: 'dev/config.rb',
+          environment: 'production'
         }
       }
     },
