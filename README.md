@@ -5,6 +5,7 @@ A Yeoman Front-End Boilerplate Generator
 * Built-in preview server with LiveReload
 * Automatic compilation of SCSS with Compass
 * Image Optimization
+* Assemble.io templating engine 
 
 ## Getting Started
 
