@@ -22,6 +22,20 @@ module.exports = function(grunt) {
         }
       }
     },
+    assemble: {
+      options: {
+        flatten: true,
+        layout: 'main.html',
+        layoutdir: 'dev/layouts/',
+        partials: ['dev/partials/*.html'],
+        data: ['dev/datas/*.json']
+      },
+      pages: {
+        files: {
+          'prod/': ['dev/pages/*.html']
+        }
+      }
+    },
     concat: {
       options: {
         separator: ';',
@@ -155,8 +169,8 @@ module.exports = function(grunt) {
         tasks: ['compass:dev']
       },
       html: {
-        files: ['dev/**/*.html'],
-        tasks: ['copy:html','template:process']
+        files: ['dev/**/*.{html,json}'],
+        tasks: ['copy:html','assemble:pages']
       },
       css: {
         files: ['dev/css/*.css'],
@@ -164,7 +178,7 @@ module.exports = function(grunt) {
       },
       /* watch our files for change, reload */
       livereload: {
-        files: ['dev/*.html', 'dev/css/*.css', 'dev/img/*', 'dev/src/**/*.js'],
+        files: ['dev/**/*.{html,json}', 'dev/css/*.css', 'dev/img/*', 'dev/src/**/*.js'],
         options: {
           livereload: true
         }
@@ -294,6 +308,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-prompt');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('assemble');
   // Dev : copy, compile, lance le serveur
   grunt.registerTask('dev', [
     'clean',
@@ -306,7 +321,7 @@ module.exports = function(grunt) {
     'copy:jscustom',
     'concat:total',
     'copy:html',
-    'template:process',
+    'assemble:pages',
     'copy:css',
     'copy:font',
     'copy:resources',
@@ -317,7 +332,7 @@ module.exports = function(grunt) {
   grunt.registerTask('production', [
     'clean',
     'prompt:prep',
-    'compass:dev',
+    'compass:prod',
     'jshint:use_defaults',
     'concat:appjs',
     'copy:js',
@@ -328,7 +343,7 @@ module.exports = function(grunt) {
     'copy:css',
     'copy:font',
     'copy:html',
-    'template:process',
+    'assemble:pages',
     'copy:resources',
     'imagemin:dynamic'
   ]);

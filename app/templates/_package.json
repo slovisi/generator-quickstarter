@@ -2,8 +2,6 @@
   "name": "<%= _.slugify(projectName) %>",
   "version": "0.1.0",
   "author": "<%= authorName %>",
-  "fullname": "<%= projectName %>",
-  "analytics": "<%= gAnalytics %>",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-clean": "~0.5.0",
@@ -17,6 +15,7 @@
     "grunt-template": "~0.2.0",
     "grunt-prompt": "~0.1.2",
     "grunt-contrib-imagemin": "~0.2.1",
-    "grunt-contrib-jshint": "~0.6.4"
+    "grunt-contrib-jshint": "~0.6.4",
+    "assemble": "~0.4.7"
   }
 }

@@ -80,7 +80,17 @@ QuickstarterGenerator.prototype.askFor = function askFor() {
 QuickstarterGenerator.prototype.app = function app() {
   this.mkdir('dev');
   this.mkdir('dev/css');
-  this.template('index.html', 'dev/index.html');
+  this.mkdir('dev/pages');
+  this.copy('pages/index.html', 'dev/pages/index.html');
+  this.mkdir('dev/layouts');
+  this.copy('layouts/main.html', 'dev/layouts/main.html');
+  this.mkdir('dev/partials');
+  this.copy('partials/ganalytics.html', 'dev/partials/ganalytics.html');
+  this.mkdir('dev/datas');
+  this.template('datas/data.json', 'dev/datas/data.json');
+  this.template('datas/index.json', 'dev/datas/index.json');
+  this.template('datas/ganalytics.json', 'dev/datas/ganalytics.json');
+
   this.copy('htaccess', 'dev/.htaccess');
   this.copy('404.html', 'dev/404.html');
   this.copy('apple-touch-icon-precomposed.png', 'dev/apple-touch-icon-precomposed.png');

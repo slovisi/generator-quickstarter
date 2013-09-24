@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="fr" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="fr" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="fr" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="fr" class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{sitename}} | {{page.name}}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="css/screen.css">
+    <script src="js/modernizr.min.js"></script>
+  </head>
+  <body>
+    <div class="main-wrapper">
+    {{> body}}
+    </div><!-- end .main-wrapper -->
+    <script src="js/app.js"></script>
+    {{#if page.script}}
+    <script src="js/{{page.script}}.js"></script>
+    {{/if}}
+    {{> ganalytics }}
+  </body>
+</html>
