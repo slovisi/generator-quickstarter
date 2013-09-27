@@ -93,7 +93,8 @@ QuickstarterGenerator.prototype.app = function app() {
 
   this.copy('htaccess', 'dev/.htaccess');
   this.copy('404.html', 'dev/404.html');
-  this.copy('apple-touch-icon-precomposed.png', 'dev/apple-touch-icon-precomposed.png');
+  this.copy('apple-touch-icon-precomposed.png',
+            'dev/apple-touch-icon-precomposed.png');
   this.copy('CHANGELOG.md', 'dev/CHANGELOG.md');
   this.copy('LICENSE.md', 'dev/LICENSE.md');
   this.copy('README.md', 'dev/README.md');
@@ -113,12 +114,17 @@ QuickstarterGenerator.prototype.app = function app() {
   this.mkdir("dev/scss");
   this.mkdir("dev/scss/partials");
   this.template("scss/_screen.scss", "dev/scss/screen.scss");
-  this.template("scss/partials/_application.scss", "dev/scss/partials/_application.scss");
-  this.template("scss/partials/_boilerplate-defaults.scss", "dev/scss/partials/_boilerplate-defaults.scss");
-  this.template("scss/partials/_config.scss", "dev/scss/partials/_config.scss");
+  this.template("scss/partials/_application.scss",
+                "dev/scss/partials/_application.scss");
+  this.template("scss/partials/_boilerplate-defaults.scss",
+                "dev/scss/partials/_boilerplate-defaults.scss");
+  this.template("scss/partials/_config.scss",
+                "dev/scss/partials/_config.scss");
   this.template("scss/partials/_debug.scss", "dev/scss/partials/_debug.scss");
-  this.template("scss/partials/_helpers.scss", "dev/scss/partials/_helpers.scss");
-  this.template("scss/partials/_normalize.scss", "dev/scss/partials/_normalize.scss");
+  this.template("scss/partials/_helpers.scss",
+                "dev/scss/partials/_helpers.scss");
+  this.template("scss/partials/_normalize.scss",
+                "dev/scss/partials/_normalize.scss");
   this.template("scss/partials/_print.scss", "dev/scss/partials/_print.scss");
 
   if (this.useWebfont) {
@@ -157,7 +163,8 @@ QuickstarterGenerator.prototype.app = function app() {
     this.copy('font/PTS76F-webfont.ttf', 'dev/font/PTS76F-webfont.ttf');
     this.copy('font/PTS76F-webfont.woff', 'dev/font/PTS76F-webfont.woff');
     this.mkdir('dev/scss/optionnal');
-    this.copy('scss/optionnal/_webfonts.scss', 'dev/scss/optionnal/_webfonts.scss');
+    this.copy('scss/optionnal/_webfonts.scss',
+              'dev/scss/optionnal/_webfonts.scss');
   }
 
   this.copy('_package.json', 'package.json');
