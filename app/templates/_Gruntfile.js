@@ -76,9 +76,8 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'dev/font',
-          src: ['*.{eot,woff,svg,ttf}'],
-          dest: 'prod/font/',
-          ext: '.eot'
+          src: ['*.{eot,woff,svg,ttf,txt}'],
+          dest: 'prod/font/'
         }]
       },
       js: {
