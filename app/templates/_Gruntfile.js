@@ -139,7 +139,10 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['dev/src/**/*.js'],
-        tasks: ['jshint:use_defaults','concat:appjs','copy:js','copy:jscustom']
+        tasks: ['jshint:use_defaults',
+                'concat:appjs','copy:js',
+                'copy:jscustom',
+                'concat:total']
       },
       livereload: {
         files: ['dev/**/*.{html,json}', 'dev/css/*.css', 'dev/img/*', 'dev/src/**/*.js'],

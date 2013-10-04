@@ -1,6 +1,6 @@
 {
   "name": "generator-quickstarter",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "A HTML5 Boilerplate based Generator, Compass ready",
   "keywords": [
     "yeoman-generator"
