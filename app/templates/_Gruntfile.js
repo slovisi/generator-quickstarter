@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         separator: ';',
       },
       appjs: {
-        src: ['dev/src/plugins.js', 'dev/src/main.js'],
+        src: ['dev/src/plugins.js', 'dev/src/plugins/*.js', 'dev/src/main.js'],
         dest: 'dev/js/app.js',
       },
       total: {
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
             expand: true,
             dot: true,
             cwd: 'dev/',
-            src: ['*.{ico,png,txt,xml,html}',
+            src: ['*.{ico,png,txt,xml,html,htc}',
                   '.htaccess'],
             dest: 'prod/'
           }
@@ -96,9 +96,8 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: 'dev/src/custom',
-            src: ['*.js'],
-            dest: 'prod/js/',
-            ext: '.js'
+            src: ['*.{js,swf}'],
+            dest: 'prod/js/'
           }
         ]
       },
@@ -137,6 +136,10 @@ module.exports = function(grunt) {
         files: ['dev/css/*.css'],
         tasks: ['copy:css']
       },
+      img: {
+        files: ['dev/img/**/*'],
+        tasks: ['copy:resources']
+      },
       js: {
         files: ['dev/src/**/*.js'],
         tasks: ['jshint:use_defaults',
@@ -161,7 +164,7 @@ module.exports = function(grunt) {
       }
     },
     modernizr: {
-      "devFile" : "bower_components//modernizr/modernizr.js",
+      "devFile" : "bower_components/modernizr/modernizr.js",
       "outputFile" : "prod/js/modernizr.min.js",
       "extra" : {
           "shiv" : true,
@@ -186,20 +189,6 @@ module.exports = function(grunt) {
       "matchCommunityTests" : false,
       "customTests" : []
     },
-    /*prompt: {
-      prep: {
-        options: {
-          questions: [
-            {
-              config: 'template.options.data.gAnalytics',
-              type: 'input', // list, checkbox, confirm, input, password
-              message: 'Would you like to set the Google Analytics account',
-              default: pkg.analytics, // default value if nothing is entered
-            }
-          ]
-        }
-      },
-    },*/
     imagemin: {
       dynamic: {
         files: [{
@@ -231,15 +220,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-modernizr');
-  grunt.loadNpmTasks('grunt-prompt');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-modernizr');  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('assemble');
 
   grunt.registerTask('dev', [
     'clean',
-    /*'prompt:prep',*/
     'compass:dev',
     'modernizr',
     'jshint:use_defaults',
@@ -258,7 +244,6 @@ module.exports = function(grunt) {
 
   grunt.registerTask('production', [
     'clean',
-    /*'prompt:prep',*/
     'compass:prod',
     'jshint:use_defaults',
     'concat:appjs',
