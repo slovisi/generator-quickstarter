@@ -164,6 +164,7 @@ module.exports = function(grunt) {
       }
     },
     modernizr: {
+      dist: {
       "devFile" : "bower_components/modernizr/modernizr.js",
       "outputFile" : "prod/js/modernizr.min.js",
       "extra" : {
@@ -188,6 +189,7 @@ module.exports = function(grunt) {
       "parseFiles" : true,
       "matchCommunityTests" : false,
       "customTests" : []
+      }
     },
     imagemin: {
       dynamic: {
@@ -214,20 +216,20 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compass');
-  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-modernizr');  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-modernizr');  
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('assemble');
 
   grunt.registerTask('dev', [
     'clean',
     'compass:dev',
-    'modernizr',
     'jshint:use_defaults',
     'concat:appjs',
     'copy:js',
@@ -238,6 +240,7 @@ module.exports = function(grunt) {
     'copy:css',
     'copy:font',
     'copy:resources',
+    'modernizr:dist',
     'connect:server',
     'watch'
   ]);
@@ -250,13 +253,13 @@ module.exports = function(grunt) {
     'copy:js',
     'copy:jscustom',
     'uglify:minify',
-    'modernizr',
     'concat:total',
     'copy:css',
     'copy:font',
     'copy:html',
     'assemble:pages',
     'copy:resources',
+    'modernizr:dist',
     'imagemin:dynamic'
   ]);
 
