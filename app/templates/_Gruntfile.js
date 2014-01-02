@@ -2,20 +2,26 @@ module.exports = function(grunt) {
   var pkg = grunt.file.readJSON('package.json');
 
   grunt.initConfig({
+    // Project settings
+    yeoman: {
+      // Configurable paths
+      app: 'dev',
+      dist: 'prod'
+    },
     clean: {
-      files: ['prod','dev/css']
+      files: ['<%%=yeoman.dist%>','<%%=yeoman.app%>/css']
     },
     compass: {
       dev: {
         options: {
-          basePath: 'dev/',
-          config: 'dev/config.rb'
+          basePath: '<%%=yeoman.app%>/',
+          config: '<%%=yeoman.app%>/config.rb'
         }
       },
       prod: {
         options: {
-          basePath: 'dev/',
-          config: 'dev/config.rb',
+          basePath: '<%%=yeoman.app%>/',
+          config: '<%%=yeoman.app%>/config.rb',
           environment: 'production'
         }
       }
@@ -24,13 +30,13 @@ module.exports = function(grunt) {
       options: {
         flatten: true,
         layout: 'main.html',
-        layoutdir: 'dev/layouts/',
-        partials: ['dev/partials/*.html'],
-        data: ['dev/datas/*.json']
+        layoutdir: '<%%=yeoman.app%>/layouts/',
+        partials: ['<%%=yeoman.app%>/partials/*.html'],
+        data: ['<%%=yeoman.app%>/datas/*.json']
       },
       pages: {
         files: {
-          'prod/': ['dev/pages/*.html']
+          '<%%=yeoman.dist%>/': ['<%%=yeoman.app%>/pages/*.html']
         }
       }
     },
@@ -39,21 +45,21 @@ module.exports = function(grunt) {
         separator: ';',
       },
       appjs: {
-        src: ['dev/src/plugins.js', 'dev/src/plugins/*.js', 'dev/src/main.js'],
-        dest: 'dev/js/app.js',
+        src: ['<%%=yeoman.app%>/src/plugins.js', '<%%=yeoman.app%>/src/plugins/*.js', '<%%=yeoman.app%>/src/main.js'],
+        dest: '<%%=yeoman.app%>/js/app.js',
       },
       total: {
-        src: ['bower_components/jquery/jquery.min.js', 'prod/js/app.js'],
-        dest: 'prod/js/app.js',
+        src: ['<%%=yeoman.app%>/bower_components/jquery/jquery.min.js', '<%%=yeoman.dist%>/js/app.js'],
+        dest: '<%%=yeoman.dist%>/js/app.js',
       }
     },
     uglify: {
       minify: {
         files: [{
           expand: true,
-          cwd: 'prod/js',
+          cwd: '<%%=yeoman.dist%>/js',
           src: ['*.js'],
-          dest: 'prod/js',
+          dest: '<%%=yeoman.dist%>/js',
           ext: '.js'
         }]
       }
@@ -65,28 +71,28 @@ module.exports = function(grunt) {
           {
             expand: true,
             dot: true,
-            cwd: 'dev/',
+            cwd: '<%%=yeoman.app%>/',
             src: ['*.{ico,png,txt,xml,html,htc}',
                   '.htaccess'],
-            dest: 'prod/'
+            dest: '<%%=yeoman.dist%>/'
           }
         ]
       },
       font: {
         files: [{
           expand: true,
-          cwd: 'dev/font',
+          cwd: '<%%=yeoman.app%>/font',
           src: ['*.{eot,woff,svg,ttf,txt}'],
-          dest: 'prod/font/'
+          dest: '<%%=yeoman.dist%>/font/'
         }]
       },
       js: {
         files: [
           {
             expand: true,
-            cwd: 'dev/js',
+            cwd: '<%%=yeoman.app%>/js',
             src: ['*.js'],
-            dest: 'prod/js/',
+            dest: '<%%=yeoman.dist%>/js/',
             ext: '.js'
           }
         ]
@@ -95,9 +101,9 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: 'dev/src/custom',
+            cwd: '<%%=yeoman.app%>/src/custom',
             src: ['*.{js,swf}'],
-            dest: 'prod/js/'
+            dest: '<%%=yeoman.dist%>/js/'
           }
         ]
       },
@@ -105,9 +111,9 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: 'dev/css/',
+            cwd: '<%%=yeoman.app%>/css/',
             src: ['*.css'],
-            dest: 'prod/css/',
+            dest: '<%%=yeoman.dist%>/css/',
             ext: '.css'
           }
         ]
@@ -116,39 +122,39 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: 'dev/img',
+            cwd: '<%%=yeoman.app%>/img',
             src: ['**/*'],
-            dest: 'prod/img/'
+            dest: '<%%=yeoman.dist%>/img/'
           }
         ]
       }
     },
     watch: {
       sass: {
-        files: ['dev/scss/**/*.scss'],
+        files: ['<%%=yeoman.app%>/scss/**/*.scss'],
         tasks: ['compass:dev']
       },
       html: {
-        files: ['dev/**/*.{html,json}'],
+        files: ['<%%=yeoman.app%>/**/*.{html,json}'],
         tasks: ['copy:html','assemble:pages']
       },
       css: {
-        files: ['dev/css/*.css'],
+        files: ['<%%=yeoman.app%>/css/*.css'],
         tasks: ['copy:css']
       },
       img: {
-        files: ['dev/img/**/*'],
+        files: ['<%%=yeoman.app%>/img/**/*'],
         tasks: ['copy:resources']
       },
       js: {
-        files: ['dev/src/**/*.js'],
+        files: ['<%%=yeoman.app%>/src/**/*.js'],
         tasks: ['jshint:use_defaults',
                 'concat:appjs','copy:js',
                 'copy:jscustom',
                 'concat:total']
       },
       livereload: {
-        files: ['dev/**/*.{html,json}', 'dev/css/*.css', 'dev/img/*', 'dev/src/**/*.js'],
+        files: ['<%%=yeoman.app%>/**/*.{html,json}', '<%%=yeoman.app%>/css/*.css', '<%%=yeoman.app%>/img/*', '<%%=yeoman.app%>/src/**/*.js'],
         options: {
           livereload: true
         }
@@ -159,22 +165,27 @@ module.exports = function(grunt) {
         options: {
           hostname: '*',
           port: 9001,
-          base: 'prod/'
+          base: '<%%=yeoman.dist%>/'
         }
       }
     },
     modernizr: {
       dist: {
-      "devFile" : "bower_components/modernizr/modernizr.js",
-      "outputFile" : "prod/js/modernizr.min.js",
-      "extra" : {
-          "shiv" : true,
-          "printshiv" : false,
-          "load" : true,
-          "mq" : false,
-          "cssclasses" : true
-      },
-      "extensibility" : {
+        devFile: '<%%= yeoman.app %>/bower_components/modernizr/modernizr.js',
+        outputFile: '<%%= yeoman.dist %>/js/modernizr.min.js',
+        files: [
+            ['<%%= yeoman.dist %>/js/{,*/}*.js'],
+            ['<%%= yeoman.dist %>/css/{,*/}*.css'],
+            ['!<%%= yeoman.dist %>/js/modernizer.min.js']
+        ],
+        extra : {
+          shiv : true,
+          printshiv : false,
+          load : true,
+          mq : false,
+          cssclasses : true
+        },
+        extensibility : {
           "addtest" : false,
           "prefixed" : false,
           "teststyles" : false,
@@ -183,21 +194,17 @@ module.exports = function(grunt) {
           "hasevents" : false,
           "prefixes" : false,
           "domprefixes" : false
-      },
-      "uglify" : true,
-      "tests" : [],
-      "parseFiles" : true,
-      "matchCommunityTests" : false,
-      "customTests" : []
+        } ,
+        "uglify" : true
       }
     },
     imagemin: {
       dynamic: {
         files: [{
           expand: true,
-          cwd: 'prod/img/',
+          cwd: '<%%=yeoman.dist%>/img/',
           src: ['**/*.{png,jpg,gif}'],
-          dest: 'prod/img/'
+          dest: '<%%=yeoman.dist%>/img/'
         }]
       }
     },
@@ -211,7 +218,7 @@ module.exports = function(grunt) {
           jQuery: true
         },
       },
-      use_defaults: ['dev/src/*.js'],
+      use_defaults: ['<%%=yeoman.app%>/src/*.js'],
     }
   });
 

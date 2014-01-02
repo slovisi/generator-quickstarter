@@ -168,6 +168,7 @@ QuickstarterGenerator.prototype.app = function app() {
   }
 
   this.copy('_package.json', 'package.json');
+  this.copy('bowerrc', '.bowerrc');
   this.copy('_bower.json', 'bower.json');
   this.copy('_Gruntfile.js', 'Gruntfile.js');
 };
