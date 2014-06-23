@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         separator: ';',
         stripBanners: true,
         banner: '/*! <%%= pkg.name %> - v<%%= pkg.version %> - ' +
-                '<%%= grunt.template.today("yyyy-mm-dd hh:ii:ss") %> */',
+                '<%%= grunt.template.today("yyyy-mm-dd hh:MM:ss") %> */',
       },
       appjs: {
         src: ['<%%=yeoman.app%>/src/plugins.js',
