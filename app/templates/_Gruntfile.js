@@ -1,15 +1,15 @@
 module.exports = function(grunt) {
-  var pkg = grunt.file.readJSON('package.json');
-
   grunt.initConfig({
-    // Project settings
+    pkg: grunt.file.readJSON('package.json');
     yeoman: {
       // Configurable paths
       app: 'dev',
       dist: 'prod'
     },
     clean: {
-      files: ['<%%=yeoman.dist%>','<%%=yeoman.app%>/css']
+      files: ['<%%=yeoman.dist%>',
+              '<%%=yeoman.app%>/css',
+              '<%%=yeoman.app%>/js']
     },
     compass: {
       dev: {
@@ -43,14 +43,20 @@ module.exports = function(grunt) {
     concat: {
       options: {
         separator: ';',
+        stripBanners: true,
+        banner: '/*! <%%= pkg.name %> - v<%%= pkg.version %> - ' +
+                '<%%= grunt.template.today("yyyy-mm-dd hh:ii:ss") %> */',
       },
       appjs: {
-        src: ['<%%=yeoman.app%>/src/plugins.js', '<%%=yeoman.app%>/src/plugins/*.js', '<%%=yeoman.app%>/src/main.js'],
-        dest: '<%%=yeoman.app%>/js/app.js',
+        src: ['<%%=yeoman.app%>/src/plugins.js',
+              '<%%=yeoman.app%>/src/plugins/*.js',
+              '<%%=yeoman.app%>/src/main.js'],
+        dest: '<%%=yeoman.app%>/js/app.js'
       },
       total: {
-        src: ['<%%=yeoman.app%>/bower_components/jquery/jquery.min.js', '<%%=yeoman.dist%>/js/app.js'],
-        dest: '<%%=yeoman.dist%>/js/app.js',
+        src: ['<%%=yeoman.app%>/bower_components/jquery/jquery.min.js',
+              '<%%=yeoman.dist%>/js/app.js'],
+        dest: '<%%=yeoman.dist%>/js/app.js'
       }
     },
     uglify: {
@@ -149,12 +155,16 @@ module.exports = function(grunt) {
       js: {
         files: ['<%%=yeoman.app%>/src/**/*.js'],
         tasks: ['jshint:use_defaults',
-                'concat:appjs','copy:js',
+                'concat:appjs',
+                'copy:js',
                 'copy:jscustom',
                 'concat:total']
       },
       livereload: {
-        files: ['<%%=yeoman.app%>/**/*.{html,json}', '<%%=yeoman.app%>/css/*.css', '<%%=yeoman.app%>/img/*', '<%%=yeoman.app%>/src/**/*.js'],
+        files: ['<%%=yeoman.app%>/**/*.{html,json}',
+                '<%%=yeoman.app%>/css/*.css',
+                '<%%=yeoman.app%>/img/*',
+                '<%%=yeoman.app%>/src/**/*.js'],
         options: {
           livereload: true
         }
@@ -218,7 +228,9 @@ module.exports = function(grunt) {
           jQuery: true
         },
       },
-      use_defaults: ['<%%=yeoman.app%>/src/*.js'],
+      use_defaults: ['<%%=yeoman.app%>/src/main.js',
+                     '<%%=yeoman.app%>/src/plugins.js'
+                     '<%%=yeoman.app%>/src/custom/*.js']
     }
   });
 
@@ -229,7 +241,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-modernizr');  
+  grunt.loadNpmTasks('grunt-modernizr');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('assemble');
