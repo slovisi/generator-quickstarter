@@ -229,7 +229,7 @@ module.exports = function(grunt) {
         },
       },
       use_defaults: ['<%%=yeoman.app%>/src/main.js',
-                     '<%%=yeoman.app%>/src/plugins.js'
+                     '<%%=yeoman.app%>/src/plugins.js',
                      '<%%=yeoman.app%>/src/custom/*.js']
     }
   });
