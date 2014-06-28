@@ -1,5 +1,5 @@
 {
   "name": "<%= name %>"<% if (specificJS) { %>,
-  "script": "<%= _.slugify(name) %>"
+  "script": ["<%= _.slugify(name) %>"]
   <% } %>
 }

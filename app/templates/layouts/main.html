@@ -19,7 +19,9 @@
     </div><!-- end .main-wrapper -->
     <script src="js/app.js"></script>
     {{#if page.script}}
-    <script src="js/{{page.script}}.js"></script>
+    {{#each page.script}}
+    <script src="js/{{this}}.js"></script>
+    {{/each}}
     {{/if}}
     {{> ganalytics }}
   </body>
