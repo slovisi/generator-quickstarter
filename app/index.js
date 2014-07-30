@@ -86,6 +86,8 @@ QuickstarterGenerator.prototype.app = function app() {
   this.copy('layouts/main.html', 'dev/layouts/main.html');
   this.mkdir('dev/partials');
   this.copy('partials/ganalytics.html', 'dev/partials/ganalytics.html');
+  this.copy('partials/header.html', 'dev/partials/header.html');
+  this.copy('partials/footer.html', 'dev/partials/footer.html');
   this.mkdir('dev/datas');
   this.template('datas/data.json', 'dev/datas/data.json');
   this.template('datas/index.json', 'dev/datas/index.json');
@@ -105,6 +107,8 @@ QuickstarterGenerator.prototype.app = function app() {
 
   this.mkdir('dev/js');
   this.mkdir('dev/src');
+  this.mkdir('dev/src/plugins');
+  this.mkdir('dev/src/custom');
   this.template("js/plugins.js", "dev/src/plugins.js");
   this.template("js/main.js", "dev/src/main.js");
 
