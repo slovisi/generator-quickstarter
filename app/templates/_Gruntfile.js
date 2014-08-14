@@ -24,6 +24,13 @@ module.exports = function(grunt) {
           config: '<%%=yeoman.app%>/config.rb',
           environment: 'production'
         }
+      },
+      preprod: {
+        options: {
+          basePath: '<%%=yeoman.app%>/',
+          config: '<%%=yeoman.app%>/configpreprod.rb',
+          environment: 'production'
+        }
       }
     },
     assemble: {
@@ -267,6 +274,24 @@ module.exports = function(grunt) {
   grunt.registerTask('production', [
     'clean',
     'compass:prod',
+    'jshint:use_defaults',
+    'concat:appjs',
+    'copy:js',
+    'copy:jscustom',
+    'uglify:minify',
+    'concat:total',
+    'copy:css',
+    'copy:font',
+    'copy:html',
+    'assemble:pages',
+    'copy:resources',
+    'modernizr:dist',
+    'imagemin:dynamic'
+  ]);
+
+  grunt.registerTask('preprod', [
+    'clean',
+    'compass:preprod',
     'jshint:use_defaults',
     'concat:appjs',
     'copy:js',

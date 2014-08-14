@@ -103,6 +103,7 @@ QuickstarterGenerator.prototype.app = function app() {
   this.copy('robots.txt', 'dev/robots.txt');
   this.copy('crossdomain.xml', 'dev/crossdomain.xml');
   this.template('_config.rb', 'dev/config.rb');
+  this.template('_configpreprod.rb', 'dev/configpreprod.rb');
   this.copy('favicon.ico', 'dev/favicon.ico');
 
   this.mkdir('dev/js');
