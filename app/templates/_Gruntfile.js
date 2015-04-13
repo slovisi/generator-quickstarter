@@ -178,7 +178,7 @@ module.exports = function(grunt) {
                 'concat:total'*/]
       },
       livereload: {
-        files: ['<%%=yeoman.app%>/**/*.{html,json}',
+        files: ['<%%=yeoman.app%>/**/*.{html,hbs,json}',
                 '<%%=yeoman.app%>/css/*.css',
                 '<%%=yeoman.app%>/img/*',
                 '<%%=yeoman.app%>/src/**/*.js'],
