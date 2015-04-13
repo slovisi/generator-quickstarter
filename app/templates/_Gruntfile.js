@@ -15,7 +15,8 @@ module.exports = function(grunt) {
       dev: {
         options: {
           basePath: '<%%=yeoman.app%>/',
-          config: '<%%=yeoman.app%>/config.rb'
+          config: '<%%=yeoman.app%>/config.rb',
+          sourcemap: true
         }
       },
       prod: {
@@ -36,14 +37,14 @@ module.exports = function(grunt) {
     assemble: {
       options: {
         flatten: true,
-        layout: 'main.html',
+        layout: 'main.hbs',
         layoutdir: '<%%=yeoman.app%>/layouts/',
-        partials: ['<%%=yeoman.app%>/partials/*.html'],
+        partials: ['<%%=yeoman.app%>/partials/*.hbs'],
         data: ['<%%=yeoman.app%>/datas/*.json']
       },
       pages: {
         files: {
-          '<%%=yeoman.dist%>/': ['<%%=yeoman.app%>/pages/*.html']
+          '<%%=yeoman.dist%>/': ['<%%=yeoman.app%>/pages/*.hbs']
         }
       }
     },
@@ -59,12 +60,12 @@ module.exports = function(grunt) {
               '<%%=yeoman.app%>/src/plugins/*.js',
               '<%%=yeoman.app%>/src/main.js'],
         dest: '<%%=yeoman.app%>/js/app.js'
-      },
+      }/*,
       total: {
         src: ['<%%=yeoman.app%>/bower_components/jquery/jquery.min.js',
               '<%%=yeoman.dist%>/js/app.js'],
         dest: '<%%=yeoman.dist%>/js/app.js'
-      }
+      }*/
     },
     uglify: {
       minify: {
@@ -99,6 +100,16 @@ module.exports = function(grunt) {
           dest: '<%%=yeoman.dist%>/font/'
         }]
       },
+      jquery: {
+        files: [
+          {
+            expand: true,
+            cwd: '<%%=yeoman.app%>/bower_components/jquery',
+            src: ['jquery.min.js','jquery.min.map'],
+            dest: '<%%=yeoman.dist%>/vendor/jquery'
+          }
+        ]
+      },
       js: {
         files: [
           {
@@ -125,9 +136,8 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: '<%%=yeoman.app%>/css/',
-            src: ['*.css'],
-            dest: '<%%=yeoman.dist%>/css/',
-            ext: '.css'
+            src: ['*.{css,map}'],
+            dest: '<%%=yeoman.dist%>/css/'
           }
         ]
       },
@@ -164,8 +174,8 @@ module.exports = function(grunt) {
         tasks: ['jshint:use_defaults',
                 'concat:appjs',
                 'copy:js',
-                'copy:jscustom',
-                'concat:total']
+                'copy:jscustom'/*,
+                'concat:total'*/]
       },
       livereload: {
         files: ['<%%=yeoman.app%>/**/*.{html,json}',
@@ -189,11 +199,11 @@ module.exports = function(grunt) {
     modernizr: {
       dist: {
         devFile: '<%%= yeoman.app %>/bower_components/modernizr/modernizr.js',
-        outputFile: '<%%= yeoman.dist %>/js/modernizr.min.js',
+        outputFile: '<%%= yeoman.dist %>/js/vendor/modernizr/modernizr.min.js',
         files: {
             "src" : ['<%%= yeoman.dist %>/js/{,*/}*.js',
                      '<%%= yeoman.dist %>/css/{,*/}*.css',
-                     '!<%%= yeoman.dist %>/js/modernizer.min.js']
+                     '!<%%= yeoman.dist %>/js/vendor/modernizr/modernizer.min.js']
         },
         extra : {
           shiv : true,
@@ -257,10 +267,11 @@ module.exports = function(grunt) {
     'clean',
     'compass:dev',
     'jshint:use_defaults',
+    'copy:jquery',
     'concat:appjs',
     'copy:js',
     'copy:jscustom',
-    'concat:total',
+    /*'concat:total',*/
     'copy:html',
     'assemble:pages',
     'copy:css',
@@ -275,11 +286,13 @@ module.exports = function(grunt) {
     'clean',
     'compass:prod',
     'jshint:use_defaults',
+    'copy:jquery',
     'concat:appjs',
     'copy:js',
     'copy:jscustom',
     'uglify:minify',
-    'concat:total',
+    /*'concat:total',*/
+    'copy:jquery',
     'copy:css',
     'copy:font',
     'copy:html',
@@ -293,11 +306,11 @@ module.exports = function(grunt) {
     'clean',
     'compass:preprod',
     'jshint:use_defaults',
+    'copy:jquery',
     'concat:appjs',
     'copy:js',
     'copy:jscustom',
-    'uglify:minify',
-    'concat:total',
+    /*'concat:total',*/
     'copy:css',
     'copy:font',
     'copy:html',
@@ -308,5 +321,6 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('default', ['dev']);
+  grunt.registerTask('prod', ['production']);
 
 };

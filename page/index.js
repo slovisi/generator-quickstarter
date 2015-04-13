@@ -34,7 +34,7 @@ PageGenerator.prototype.askFor = function askFor() {
 
 
 PageGenerator.prototype.files = function files() {
-  this.template('_page.html', 'dev/pages/' + this._.slugify(this.name) + '.html');
+  this.template('_page.hbs', 'dev/pages/' + this._.slugify(this.name) + '.hbs');
   this.template('_page.json', 'dev/datas/' + this._.slugify(this.name) + '.json');
   if (this.specificJS) {
     this.mkdir('dev/src/custom')

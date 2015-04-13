@@ -1,3 +1,4 @@
 {
-  "sitename": "<%= projectName %>"
+  "sitename": "<%= projectName %>",
+  "lang": "<%= projectLang %>"
 }

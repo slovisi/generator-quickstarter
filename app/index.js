@@ -30,6 +30,11 @@ QuickstarterGenerator.prototype.askFor = function askFor() {
     message: 'Developer\'s name'
   },
   {
+    name: 'projectLang',
+    default: 'fr',
+    message: 'Project Language'
+  },
+  {
     name: 'gAnalytics',
     default: 'UA-XXXXX-X',
     message: 'Google Analytics account ? If no account leave blank :'
@@ -65,6 +70,7 @@ QuickstarterGenerator.prototype.askFor = function askFor() {
     function hasFeature(feat) { return features.indexOf(feat) !== -1; }
 
     this.projectName = props.projectName;
+    this.projectLang = props.projectLang;
     this.authorName = props.authorName;
     this.gAnalytics = props.gAnalytics;
     this.useWebfont = hasFeature('useWebfont');
@@ -81,13 +87,13 @@ QuickstarterGenerator.prototype.app = function app() {
   this.mkdir('dev');
   this.mkdir('dev/css');
   this.mkdir('dev/pages');
-  this.copy('pages/index.html', 'dev/pages/index.html');
+  this.copy('pages/index.hbs', 'dev/pages/index.hbs');
   this.mkdir('dev/layouts');
-  this.copy('layouts/main.html', 'dev/layouts/main.html');
+  this.copy('layouts/main.hbs', 'dev/layouts/main.hbs');
   this.mkdir('dev/partials');
-  this.copy('partials/ganalytics.html', 'dev/partials/ganalytics.html');
-  this.copy('partials/header.html', 'dev/partials/header.html');
-  this.copy('partials/footer.html', 'dev/partials/footer.html');
+  this.copy('partials/ganalytics.hbs', 'dev/partials/ganalytics.hbs');
+  this.copy('partials/header.hbs', 'dev/partials/header.hbs');
+  this.copy('partials/footer.hbs', 'dev/partials/footer.hbs');
   this.mkdir('dev/datas');
   this.template('datas/data.json', 'dev/datas/data.json');
   this.template('datas/index.json', 'dev/datas/index.json');
