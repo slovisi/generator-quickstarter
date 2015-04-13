@@ -158,7 +158,7 @@ module.exports = function(grunt) {
         tasks: ['compass:dev']
       },
       html: {
-        files: ['<%%=yeoman.app%>/**/*.{html,json}'],
+        files: ['<%%=yeoman.app%>/**/*.{html,hbs,json}'],
         tasks: ['copy:html','assemble:pages']
       },
       css: {
