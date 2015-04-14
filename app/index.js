@@ -182,6 +182,7 @@ QuickstarterGenerator.prototype.app = function app() {
   this.copy('bowerrc', '.bowerrc');
   this.copy('_bower.json', 'bower.json');
   this.copy('_Gruntfile.js', 'Gruntfile.js');
+  this.copy('_gitignore', '.gitignore');
 };
 
 QuickstarterGenerator.prototype.projectfiles = function projectfiles() {

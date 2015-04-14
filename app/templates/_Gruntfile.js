@@ -104,9 +104,9 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%%=yeoman.app%>/bower_components/jquery',
+            cwd: '<%%=yeoman.app%>/bower_components/jquery/dist',
             src: ['jquery.min.js','jquery.min.map'],
-            dest: '<%%=yeoman.dist%>/vendor/jquery'
+            dest: '<%%=yeoman.dist%>/js/vendor/jquery'
           }
         ]
       },
