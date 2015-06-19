@@ -34,7 +34,7 @@ $h6-font-size: 0.67 * $base-font-size !default;
 $indent-amount: 40px !default;
 
 
-$browser-minimum-versions : (ie : <% if (supportIE6) ?>'6'<% } else if (supportIE7) %>'7'<% } else { %>'8'<% } %>) ;
+$browser-minimum-versions : (ie : <% if (supportIE6) %>'6'<% } else if (supportIE7) %>'7'<% } else { %>'8'<% } %>) ;
 
 
 // Debug mode
