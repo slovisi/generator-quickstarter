@@ -33,11 +33,8 @@ $h6-font-size: 0.67 * $base-font-size !default;
 // The amount lists and blockquotes are indented.
 $indent-amount: 40px !default;
 
-// Set this to true to add support for IE 6.
-$legacy-support-for-ie6: <% if (supportIE6) { %>true<% } else { %>false<% }%> !default; // Override default set in Compass' Support partial.
 
-// Set this to true to add support for IE 7.
-$legacy-support-for-ie7: <% if (supportIE7) { %>true<% } else { %>false<% }%> !default; // Override default set in Compass' Support partial.
+$browser-minimum-versions : (ie : <% if (supportIE6) ?>'6'<% } else if (supportIE7) %>'7'<% } else { %>'8'<% } %>) ;
 
 
 // Debug mode
