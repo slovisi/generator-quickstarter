@@ -1,3 +1,6 @@
+NO LONGER MAINTAINED, PLEASE CONSIDER TRYING : https://github.com/slovisi/generator-gulp-quickstarter
+
+
 A Yeoman Front-End Boilerplate Generator
 
 This is my first attempt at a generator, and a way for me to familiarize with nodejs. Please bear with me while I painfully try to improve my skills.
